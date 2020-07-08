@@ -22,7 +22,7 @@ The program prints today's menu from Bilkent Marmara to the terminal.
    $ cp marmara ~/bin/
    ```
 
-4. Make sure the directory you moved/copied/linked marmara file is contained in the $PATH. You might need to restart terminal session if your target directory was ~/bin/ and you just created it. You can check the path variable by:
+4. Make sure the directory you moved/copied/linked marmara file is contained in the $PATH. You might need to restart terminal session if your target directory was ~/bin and you just created it. You can check the path variable by:
 
    ```bash
    $ $PATH
