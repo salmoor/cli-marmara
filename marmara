@@ -2,9 +2,9 @@
 
 # by Alem Salmoor
 
-u_menu=u_menu
-t_menu=t_menu
-f_menu=f_menu
+u_menu=u_marmara_temp
+t_menu=t_marmara_temp
+f_menu=f_marmara_temp
 
 menu_offset=8
 day_of_week=$(($(date +%u) - 1))
