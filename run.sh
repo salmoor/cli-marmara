@@ -6,8 +6,9 @@ f_menu=f_menu
 
 menu_offset=8
 day_of_week=$(($(date +%u) - 1))
+start_idx=$(($day_of_week * $menu_offset))
 
-echo $day_of_week
+echo $start_idx
 
 wget -q -O $u_menu http://kafemud.bilkent.edu.tr/kumanya_menusu.pdf
 pdftotext $u_menu $t_menu
