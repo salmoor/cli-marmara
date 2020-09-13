@@ -6,7 +6,7 @@ u_menu=u_marmara_temp
 t_menu=t_marmara_temp
 f_menu=f_marmara_temp
 
-menu_offset=8
+menu_offset=10
 day_of_week=$(($(date +%u) - 1))
 start_idx=$(($day_of_week * $menu_offset + 1))
 
@@ -18,9 +18,9 @@ if [ $? -eq 0 ]; then
 	pdftotext $u_menu $t_menu
 	cut -d '/' -f 2 -s $t_menu | grep -v Lunch | grep -v '^$' | sed 's/^[ \t]*//' > $f_menu
 
-	for i in {0,1,2,3}; do
+	for i in {0,1,2,3,4}; do
 		lunch[$i]=$(sed "$(($start_idx + $i))q;d" $f_menu)
-		dinner[$i]=$(sed "$(($start_idx + $i + 4))q;d" $f_menu)
+		dinner[$i]=$(sed "$(($start_idx + $i + 5))q;d" $f_menu)
 	done;
 
 	echo "	$today
@@ -30,12 +30,14 @@ if [ $? -eq 0 ]; then
 		2. ${lunch[1]}
 		3. ${lunch[2]}
 		4. ${lunch[3]}
+                5. ${lunch[4]}
 
 	Dinner:
 		1. ${dinner[0]}
 		2. ${dinner[1]}
 		3. ${dinner[2]}
-		4. ${dinner[3]}"
+		4. ${dinner[3]}
+                5. ${dinner[4]}"
 else
 	echo "Can't fetch menu, check internet connection!"
 	echo "Terminating"
